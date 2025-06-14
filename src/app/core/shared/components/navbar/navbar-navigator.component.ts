@@ -61,8 +61,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         background-color: rgb(136, 10, 17);
       }
       .text-corrections {
-        color: rgb(1, 255, 43);
         font-size: 20px;
+      }
+      .text-corrections:hover {
+        color: rgb(1, 255, 43);
+        font-size: 25px;
       }
     `,
   ],
