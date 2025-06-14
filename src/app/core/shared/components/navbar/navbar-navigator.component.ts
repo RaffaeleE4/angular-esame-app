@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-navigator',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   template: `
     <nav class="navbar navbar-corrections navbar-expand-lg ">
       <div class="container-fluid ">
@@ -24,15 +25,30 @@ import { Component } from '@angular/core';
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link  text-corrections" aria-current="page" href="#"
-                >Home</a
+              <a
+                class="nav-link  text-corrections"
+                aria-current="page"
+                routerLink="/home"
+                routerLinkActive="active"
+              >
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link text-corrections"
+                routerLink="/menu"
+                routerLinkActive="active"
+                >Menù</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-corrections" href="#">Menù</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-corrections" href="#">Carrello</a>
+              <a
+                class="nav-link text-corrections"
+                routerLink="/cart"
+                routerLinkActive="active"
+                >Carrello</a
+              >
             </li>
           </ul>
         </div>
