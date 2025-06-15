@@ -5,7 +5,7 @@ import { PizzaService } from '../../services/pizza.service';
 @Component({
   selector: 'app-cart',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [CommonModule], // Aggiunto CommonModule per supportare NgIf e NgFor
+  imports: [CommonModule],
   template: `
     <div class="cart-container">
       <h1 class="cart-title">Carrello</h1>
@@ -77,7 +77,7 @@ export class CartComponent {
   constructor(private pizzaService: PizzaService) {}
 
   get cartItems(): any[] {
-    return this.pizzaService.cart(); // Utilizzo del segnale come array
+    return this.pizzaService.cart();
   }
 
   get total(): number {
@@ -98,6 +98,6 @@ export class CartComponent {
 
   checkout(): void {
     alert('Grazie dell\'acquisto!');
-    this.pizzaService.cart.set([]); // Svuota il carrello
+    this.pizzaService.cart.set([]);
   }
 }
