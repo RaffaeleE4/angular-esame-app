@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { Pizza } from '../../model/pizza';
 import { CommonModule } from '@angular/common';
 import { PizzaCardComponent } from '../../core/shared/components/card/pizza-card.component';
+import { PizzaService } from '../../services/pizza.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,7 @@ import { PizzaCardComponent } from '../../core/shared/components/card/pizza-card
     <div class="menu-container">
       <h1 class="menu-title">Le nostre pizze</h1>
       <div class="pizza-grid">
-        <app-pizza-card *ngFor="let pizza of pizzas" [pizza]="pizza" style="width: fit-content;" />
+        <app-pizza-card *ngFor="let pizza of pizzas" [pizza]="pizza"></app-pizza-card>
       </div>
     </div>
   `,
@@ -53,6 +54,8 @@ export class MenuComponent {
   http = inject(HttpClient);
   pizzas: Pizza[] = [];
 
+  constructor(private pizzaService: PizzaService) {}
+
   ngOnInit() {
     this.http
       .get<Pizza[]>(
@@ -61,5 +64,13 @@ export class MenuComponent {
       .subscribe((data) => {
         this.pizzas = data;
       });
+  }
+
+  addToCart(pizza: Pizza): void {
+    this.pizzaService.addToCart(pizza);
+  }
+
+  getPizzaCount(pizza: Pizza): number {
+    return this.pizzaService.getPizzaCount(pizza);
   }
 }
