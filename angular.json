@@ -51,6 +51,16 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "navbarlogo.png",
+                "input": "src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
