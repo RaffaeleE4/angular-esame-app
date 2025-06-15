@@ -59,13 +59,39 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     `
       .navbar-corrections {
         background-color: rgb(136, 10, 17);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 10px 20px;
       }
+
+      .navbar-brand img {
+        border-radius: 50%;
+        transition: transform 0.3s;
+      }
+
+      .navbar-brand img:hover {
+        transform: scale(1.1);
+      }
+
       .text-corrections {
-        font-size: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        transition: color 0.3s, transform 0.3s;
       }
+
       .text-corrections:hover {
         color: rgb(1, 255, 43);
-        font-size: 25px;
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 768px) {
+        .navbar-corrections {
+          padding: 5px 10px;
+        }
+
+        .text-corrections {
+          font-size: 16px;
+        }
       }
     `,
   ],
