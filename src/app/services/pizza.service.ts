@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class PizzaService {
-  public cart = signal<any[]>([]); // Reso pubblico per consentire l'accesso dal componente
+  public cart = signal<any[]>([]);
 
   getCart(): any[] {
     return this.cart();
